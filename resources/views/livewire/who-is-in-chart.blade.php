@@ -42,16 +42,9 @@
       </div>
     </div>
   </div>
-  <div class="filter-container1-who-is-in rounded m-0" >
-    <div class="filter-group-who-is-in rounded" >
-      <i class="fa-icon fas fa-filter"></i> <!-- Font Awesome filter icon -->
-      <gt-filter-group-who-is-in>
-        <!-- Add more content as needed -->
-      </gt-filter-group-who-is-in>
-    </div>
-  </div>
+ 
 </div>
-<div class="mx-1 p-0">
+<div cs="mx-1 p-0">
   <div class="container-box-for-employee-information-who-is-in ">
     <!-- Your content goes here -->
     <div style="margin-top:5px;display:flex;align-items:center; text-align:center;justify-content:center;padding:0;">

@@ -1,8 +1,19 @@
 <div class="mx-2">
     @if($errorMessage)
-    <div id="errorMessage" class="alert alert-danger">
+    <div id="errorMessage" class="alert alert-danger d-flex justify-content-between" style="font-size:12px;">
         {{ $errorMessage }}
+        <span class="close-btn" onclick="closeErrorMessage()" style="cursor:pointer;">X</span>
     </div>
+    <script>
+            // Close the success message after a certain time
+            setTimeout(function() {
+                closeErrorMessage();
+            }, 5000); // Adjust the time limit (in milliseconds) as needed
+
+            function closeErrorMessage() {
+                document.getElementById('errorMessage').style.display = 'none';
+            }
+        </script>
     @endif
 
     <div class="applyContainer bg-white">
@@ -13,7 +24,7 @@
             <div class="form-row d-flex mt-3">
                 <div class="form-group col-md-7" style="position: relative;">
                     <label for="leaveType" style="color: #778899; font-size: 12px; font-weight: 500;">Leave type</label>
-                    <select id="leaveType" class="form-control placeholder-small" wire:click="selectLeave" wire:model="leave_type" name="leaveType" style="width: 50%; font-weight: 400; color: #778899; font-size: 12px;">
+                    <select id="leaveType" class="form-control placeholder-small" wire:click="selectLeave" wire:change="saveLeaveApplication" wire:model="leave_type" name="leaveType" style="width: 50%; font-weight: 400; color: #778899; font-size: 12px;">
                         <option value="default">Select Type</option>
                         @php
                         $managerInfo = DB::table('employee_details')
@@ -191,12 +202,12 @@
             <div class="form-row d-flex mt-3">
                 <div class="form-group col-md-6">
                     <label for="fromDate" style="color: #778899; font-size: 12px; font-weight: 500;">From date</label>
-                    <input type="date" wire:model="from_date" class="form-control placeholder-small" id="fromDate" name="fromDate" style="color: #778899;font-size:12px;" wire:change="handleFieldUpdate('from_date')">
+                    <input type="date" wire:model="from_date" wire:change="saveLeaveApplication" class="form-control placeholder-small" id="fromDate" name="fromDate" style="color: #778899;font-size:12px;" wire:change="handleFieldUpdate('from_date')">
                     @error('from_date') <span class="text-danger">{{ $message }}</span> @enderror
                 </div>
                 <div class="form-group col-md-6" style="position: relative;">
                     <label for="session" style="color: #778899; font-size: 12px; font-weight: 500;">Sessions</label>
-                    <select class="form-control placeholder-small" wire:model="from_session" id="session" name="session" style="font-size:12px;" wire:change="handleFieldUpdate('from_session')">
+                    <select class="form-control placeholder-small" wire:model="from_session" wire:change="saveLeaveApplication" id="session" name="session" style="font-size:12px;" wire:change="handleFieldUpdate('from_session')">
                         <option value="default">Select session</option>
                         <option value="Session 1">Session 1</option>
                         <option value="Session 2">Session 2</option>
@@ -208,12 +219,12 @@
             <div class="form-row d-flex  mt-3">
                 <div class="form-group col-md-6">
                     <label for="toDate" style="color: #778899; font-size: 12px; font-weight: 500;">To date</label>
-                    <input type="date" wire:model="to_date" class="form-control placeholder-small" id="toDate" name="toDate" style="color: #778899;font-size:12px;" wire:change="handleFieldUpdate('to_date')">
+                    <input type="date" wire:model="to_date" wire:change="saveLeaveApplication" class="form-control placeholder-small" id="toDate" name="toDate" style="color: #778899;font-size:12px;" wire:change="handleFieldUpdate('to_date')">
                     @error('to_date') <span class="text-danger">{{ $message }}</span> @enderror
                 </div>
                 <div class="form-group col-md-6" style="position: relative;">
                     <label for="session" style="color: #778899; font-size: 12px; font-weight: 500;">Sessions</label>
-                    <select class="form-control placeholder-small" wire:model="to_session" id="session" name="session" style="font-size:12px;" wire:change="handleFieldUpdate('to_session')">
+                    <select class="form-control placeholder-small" wire:model="to_session" wire:change="saveLeaveApplication" id="session" name="session" style="font-size:12px;" wire:change="handleFieldUpdate('to_session')">
                         <option value="default">Select session</option>
                         <option value="Session 1">Session 1</option>
                         <option value="Session 2">Session 2</option>
@@ -327,7 +338,7 @@
                     <div class="row" style="padding: 0 ; margin:0;">
                         <div class="col-md-10" style="margin: 0px; padding: 0px">
                             <div class="input-group">
-                                <cinput wire:model.debounce.500ms="searchTerm" id="searchInput" style="font-size: 10px; border-radius: 5px 0 0 5px; cursor: pointer; width:50%;" type="text" class="form-control placeholder-small" placeholder="Search for Emp.Name or ID" aria-label="Search" aria-describedby="basic-addon1">
+                                <input wire:model.debounce.500ms="searchTerm" id="searchInput" style="font-size: 10px; border-radius: 5px 0 0 5px; cursor: pointer; width:50%;" type="text" class="form-control placeholder-small" placeholder="Search for Emp.Name or ID" aria-label="Search" aria-describedby="basic-addon1">
                                     <div class="input-group-append">
                                         <button type="button" wire:click="searchCCRecipients" style="height: 29px; border-radius: 0 5px 5px 0; background-color: #007BFF; color: #fff; border: none; align-items: center; display: flex;" class="btn">
                                             <i style="margin-right: 5px;" class="fa fa-search"></i> <!-- Adjust margin-right as needed -->
@@ -369,12 +380,12 @@
 
             <div class="form-group">
                 <label for="contactDetails" style="color: #778899; font-size: 12px; font-weight: 500;">Contact Details</label>
-                <input type="text" wire:model="contact_details" class="form-control placeholder-small" id="contactDetails" name="contactDetails" style="color: #778899;width:50%;">
+                <input type="text" wire:model="contact_details" wire:change="saveLeaveApplication" class="form-control placeholder-small" id="contactDetails" name="contactDetails" value="contact_details"  style="color: #778899;width:50%;">
                 @error('contact_details') <span class="text-danger">{{ $message }}</span> @enderror
             </div>
             <div class="form-group">
                 <label for="reason" style="color: #778899; font-size: 12px; font-weight: 500;">Reason</label>
-                <textarea class="form-control" wire:model="reason" id="reason" name="reason" placeholder="Enter a reason" rows="4" style="font-size:12px;color: #778899;"></textarea>
+                <textarea class="form-control" wire:model="reason" id="reason" wire:change="saveLeaveApplication" name="reason" placeholder="Enter a reason" rows="4" style="font-size:12px;color: #778899;"></textarea>
                 @error('reason') <span class="text-danger">{{ $message }}</span> @enderror
             </div>
             <div class="form-group">
@@ -383,12 +394,13 @@
             </div>
 
             <div class="buttons1">
-                <button type="submit" class="btn btn-primary" style="background: rgb(2, 17, 79);border:none;font-size:12px;" @if(isset($insufficientBalance)) disabled @endif>Submit</button>
-                <button type="button" class="btn btn-secondary" style="background: #fff;border:1px solid rgb(2, 17, 79);font-size:12px;color:rgb(2, 17, 79);">Cancel</button>
+                <button type="submit" class=" submit-btn"  @if(isset($insufficientBalance)) disabled @endif>Submit</button>
+                <button type="button" class=" cancel-btn" wire:click="cancelLeaveApplication" style="border:1px solid rgb(2, 17, 79);">Cancel</button>
             </div>
         </form>
     </div>
     <script>
+
         // Define a variable to track the visibility state of the search container
         let searchContainerVisible = false;
 
@@ -413,8 +425,6 @@
                 toggleSearchContainer();
             }
 
-            // Optionally, you can submit the form programmatically if needed
-            // document.querySelector('form').submit();
         }
 
 

@@ -175,7 +175,7 @@ class EmpTimeSheet extends Component
         ]);
         // Check for overlapping records in the database
     }
- 
+
     public function submit()
     {
         $existingRecord = TimeSheet::where('emp_id', $this->auth_empId)

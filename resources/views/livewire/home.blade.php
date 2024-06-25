@@ -46,8 +46,8 @@
                         <div class="homeCard4">
                             <div style="color: black; padding:10px 15px;">
                                 <p style="font-size:12px;">{{$currentDate}}</p>
-                                <p style="margin-top: 10px; color: #778899; font-size: 12px;">
-                                    {{$currentDay}} | 10:00 AM to 07:00 PM
+                                <p style="margin-top: 10px; color: #778899; font-size: 11px;">
+                                    {{$currentDay}} | 10:00 Am to 07:00 Pm
                                 </p>
                                 <div style="font-size: 14px; display: flex;margin-top:2em;">
                                     <img src="/images/stopwatch.png" class="me-4" alt="Image Description" style="width: 2.7em;">

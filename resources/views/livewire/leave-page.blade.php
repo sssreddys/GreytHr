@@ -29,12 +29,12 @@
 
 
         @if(session()->has('message'))
-        <div class="alert alert-success" style="display:flex; justify-content:space-between;position:absolute;top:1%;right:50%;font-size:12px;">
+        <div class="alert alert-success d-flex justify-content-between" style="font-size:12px;">
             {{ session('message') }}
             <span class="close-btn" onclick="closeMessage()" style="cursor:pointer;">X</span>
         </div>
         @if(session()->has('error'))
-        <div class="alert alert-danger">
+        <div class="alert alert-danger" style="font-size:12px;">
             {{ session('error') }}
         </div>
         @endif
@@ -472,17 +472,13 @@
     }
 
     function toggleDetails(sectionId, clickedLink) {
-        // Define all the tab IDs
         const tabs = ['applyButton', 'pendingButton', 'historyButton'];
 
-        // Remove 'active' class from all links
         const links = document.querySelectorAll('.custom-nav-link');
         links.forEach(link => link.classList.remove('active'));
 
-        // Add 'active' class to the clicked link
         clickedLink.classList.add('active');
 
-        // Hide or show tabs based on the clicked sectionId
         tabs.forEach(tab => {
             const tabElement = document.getElementById(tab);
             if (tab === sectionId) {
@@ -492,41 +488,59 @@
             }
         });
 
-        // Hide the #leave container if history or pending button is clicked
-        if (sectionId === 'historyButton' || sectionId === 'pendingButton') {
-            document.getElementById('leave').style.display = 'none';
-            document.getElementById('cardElement').style.display = 'none'; // Hide cardElement
+        // Hide the content of other containers when 'pendingButton' or 'historyButton' is clicked
+        const cardElement = document.getElementById('cardElement');
+        if (sectionId === 'pendingButton' || sectionId === 'historyButton') {
+            otherContainers.forEach(container => {
+                const containerElement = document.getElementById(container);
+                containerElement.style.display = 'none';
+                cardElement.style.display = 'none';
+            });
         } else {
-            // Otherwise, show the #leave container
-            document.getElementById('leave').style.display = 'block';
-            document.getElementById('cardElement').style.display = 'flex'; // Show cardElement
+            // Show all containers when other buttons are clicked
+            const allContainers = ['leave'];
+            allContainers.forEach(container => {
+                const containerElement = document.getElementById(container);
+                containerElement.style.display = 'block';
+            });
         }
     }
 
 
 
     function toggleOptions(sectionId, clickedLink) {
-        // Get all the sections and links
-        const sections = document.querySelectorAll('.side > div');
-        const links = document.querySelectorAll('.side a');
+        const tabs = ['leave', 'restricted', 'leaveCancel', 'compOff'];
 
-        // Remove 'active' class from all links
+        const links = document.querySelectorAll('.side a');
         links.forEach(link => link.classList.remove('active'));
 
-        // Add 'active' class to the clicked link
         clickedLink.classList.add('active');
 
-        // Hide all sections except the one associated with the clicked link
-        sections.forEach(section => {
-            if (section.id === sectionId) {
-                section.style.display = 'block';
+        tabs.forEach(tab => {
+            const tabElement = document.getElementById(tab);
+            if (tab === sectionId) {
+                tabElement.style.display = 'block';
             } else {
-                section.style.display = 'none';
+                tabElement.style.display = 'none';
             }
         });
+
+        // Hide the content of other containers
+        const otherContainers = ['pendingButton', 'historyButton'];
+        otherContainers.forEach(container => {
+            const containerElement = document.getElementById(container);
+            containerElement.style.display = 'none';
+        });
+        if (sectionId !== 'leave' && sectionId !== 'applyButton') {
+            // Hide the 'applyButton' and 'leave' sections
+            document.getElementById('leave').style.display = 'none';
+            document.getElementById('applyButton').style.display = 'none';
+        } else {
+            // Show the 'applyButton' and 'leave' sections for other sections
+            document.getElementById('leave').style.display = 'block';
+            document.getElementById('applyButton').style.display = 'block';
+        }
     }
-
-
 
     function toggleAccordion(element) {
         const accordionBody = element.nextElementSibling;

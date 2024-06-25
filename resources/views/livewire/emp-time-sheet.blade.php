@@ -18,7 +18,7 @@
                     <div class="col-md-7" style="display:flex;align-items:center">
                         <label for="start_date" class="input-label" style="font-weight: bold; font-size: 0.8rem;">Start Date:</label>
                         <div class="input-group" style="width:45%">
-                            <input max="{{ now()->format('Y-m-d') }}" type="date" wire:model="start_date" id="start_date" class="input-field" style="font-size: 0.8rem; width: 100%; border: 1px solid #ccc; border-radius: 0.25rem; padding: 0.5rem;margin-left:8px">
+                            <input max="{{ now()->format('Y-m-d') }}" type="date" wire:model="start_date"  id="start_date" class="input-field" style="font-size: 0.8rem; width: 100%; border: 1px solid #ccc; border-radius: 0.25rem; padding: 0.5rem;margin-left:8px">
                         </div>
                         @error('start_date')
                         <span class="error-message" style="color: #e53e3e; font-size: 0.8rem; margin-top: 0.25rem; display: block;">
@@ -86,7 +86,7 @@
                             <td style="padding: 0.75rem; border-bottom: 1px solid #ddd;width:45%"><input type="text" readonly wire:model="date_and_day_with_tasks.{{ $index }}.day" style="width: 95px; padding: 0.5rem; border: 1px solid #ccc; border-radius: 0.25rem;"></td>
                             <td style="padding: 0.75rem; border-bottom: 1px solid #ddd;">
                                 <input type="text" wire:model="date_and_day_with_tasks.{{ $index }}.hours" wire:change="saveTimeSheet" style="width:40px; padding: 0.5rem; border: 1px solid #ccc; border-radius: 0.25rem" pattern="[0-9]*(\.[0-9]{1,2})?" title="Please enter a number between 0.0 and 24.0, with up to 2 decimal places." @error('date_and_day_with_tasks.'.$index.'.hours') style="border-color: red;" @enderror>
- 
+
                                 <br> @error('date_and_day_with_tasks.'.$index.'.hours')
                                 <span style="color: red; font-size: 0.5rem; width: 50px;">{{ $message }}</span>
                                 @enderror

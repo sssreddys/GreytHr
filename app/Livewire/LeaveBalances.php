@@ -232,7 +232,7 @@ class LeaveBalances extends Component
             // Calculate leave balances
             $sickLeaveBalance = $sickLeavePerYear - $approvedLeaveDays['totalSickDays'];
             $casualLeaveBalance = $casualLeavePerYear - $approvedLeaveDays['totalCasualDays'];
-            $lossOfPayBalance = $lossOfPayPerYear - $approvedLeaveDays['totalLossOfPayDays'];
+            $lossOfPayBalance = $approvedLeaveDays['totalLossOfPayDays'];
             $casualProbationLeaveBalance = $casualProbationLeavePerYear - $approvedLeaveDays['totalCasualLeaveProbationDays'];
             $marriageLeaveBalance = $marriageLeaves - $approvedLeaveDays['totalMarriageDays'];
             $maternityLeaveBalance = $maternityLeaves - $approvedLeaveDays['totalMaternityDays'];

@@ -243,65 +243,68 @@
                     <div class="col-3 p-0 py-1" style="min-height: 100vh; background: rgb(2,17,79);border-top-right-radius: 5px;">
                         <div class="primarySideBar">
                             @auth('emp')
-                                <div class="text-center menu-item-label active" data-target="#home">
-                                    <i class="fas fa-home" style="padding: 15px 0px;"></i>
+                                <div class="text-center menu-item-label active" data-target="#home" title="Home">
+                                    <i class="fas fa-home" style="padding: 15px 0px;" ></i>
                                 </div>
-                                <div class="text-center menu-item-label" data-target="#feeds">
-                                    <i class="fas fa-rss" style="padding: 15px 0px;"></i>
+                                <div class="text-center menu-item-label" data-target="#feeds" title="Feeds">
+                                    <i class="fas fa-rss" style="padding: 15px 0px;" ></i>
                                 </div>
-                                <div class="text-center menu-item-label" data-target="#people">
-                                    <i class="fas fa-users" style="padding: 15px 0px;"></i>
+                                <div class="text-center menu-item-label" data-target="#people" title="People">
+                                    <i class="fas fa-users" style="padding: 15px 0px;" ></i>
                                 </div>
-                                <div class="text-center menu-item-label" data-target="#todo">
-                                    <i class="fas fa-file-alt" style="padding: 15px 0px;"></i>
+                                <div class="text-center menu-item-label" data-target="#todo" title="To do">
+                                    <i class="fas fa-file-alt" style="padding: 15px 0px;" ></i>
                                 </div>
-                                <div class="text-center menu-item-label" data-target="#salary">
-                                    <i class="fas fa-solid fa-money-bill-transfer" style="padding: 15px 0px;"></i>
+                                <div class="text-center menu-item-label" data-target="#salary" title="Salary">
+                                    <i class="fas fa-solid fa-money-bill-transfer" style="padding: 15px 0px;" ></i>
                                 </div>
-                                <div class="text-center menu-item-label" data-target="#leave">
-                                    <i class="fas fa-file-alt" style="padding: 15px 0px;"></i>
+                                <div class="text-center menu-item-label" data-target="#leave" title="Leave">
+                                    <i class="fas fa-file-alt" style="padding: 15px 0px;" ></i>
                                 </div>
-                                <div class="text-center menu-item-label" data-target="#attendance">
-                                    <i class="fas fa-clock" style="padding: 15px 0px;"></i>
+                                <div class="text-center menu-item-label" data-target="#attendance" title="Attendance">
+                                    <i class="fas fa-clock" style="padding: 15px 0px;" ></i>
                                 </div>
-                                <div class="text-center menu-item-label" data-target="#document-center">
-                                    <i class="fas fa-folder" style="padding: 15px 0px;"></i>
+                                <div class="text-center menu-item-label" data-target="#document-center" title="Document Center">
+                                    <i class="fas fa-folder" style="padding: 15px 0px;" ></i>
                                 </div>
-                                <div class="text-center menu-item-label" data-target="#helpdesk">
-                                    <i class="fas fa-headset" style="padding: 15px 0px;"></i>
+                                <div class="text-center menu-item-label" data-target="#helpdesk" title="Heldesk">
+                                    <i class="fas fa-headset" style="padding: 15px 0px;" ></i>
                                 </div>
-                                <div class="text-center menu-item-label" data-target="#workflow-delegates">
-                                    <i class="fas fa-user-friends" style="padding: 15px 0px;"></i>
+                                <div class="text-center menu-item-label" data-target="#workflow-delegates" title="Workflow-Delegates">
+                                    <i class="fas fa-user-friends" style="padding: 15px 0px;" ></i>
+                                </div>
+                                <div class="text-center menu-item-label" data-target="#timesheet" title="Time Sheet">
+                                    <i class="fas fa-calendar-alt" style="padding: 15px 0px;" ></i>
                                 </div>
                             @endauth
 
                             @auth('hr')
-                                <div class="text-center menu-item-label active" data-target="#home-dashboard">
-                                    <i class="fas fa-home" style="padding: 15px 0px;"></i>
+                                <div class="text-center menu-item-label active" data-target="#home-dashboard" title="Home">
+                                    <i class="fas fa-home" style="padding: 15px 0px;" ></i>
                                 </div>
-                                <div class="text-center menu-item-label" data-target="#hr-request">
-                                    <i class="fas fa-laptop" style="padding: 15px 0px;"></i>
+                                <div class="text-center menu-item-label" data-target="#hr-request" title="HR Requests">
+                                    <i class="fas fa-laptop" style="padding: 15px 0px;" ></i>
                                 </div>
-                                <div class="text-center menu-item-label" data-target="#grant-leaves">
-                                    <i class="fas fa-envelope" style="padding: 15px 0px;"></i>
+                                <div class="text-center menu-item-label" data-target="#grant-leaves" title="Grant Leaves">
+                                    <i class="fas fa-envelope" style="padding: 15px 0px;" ></i>
                                 </div>
-                                <div class="text-center menu-item-label" data-target="#letter-request">
-                                    <i class="fas fa-envelope" style="padding: 15px 0px;"></i>
+                                <div class="text-center menu-item-label" data-target="#letter-request" title="Letter Request">
+                                    <i class="fas fa-envelope" style="padding: 15px 0px;" ></i>
                                 </div>
-                                <div class="text-center menu-item-label" data-target="#add-holiday-list">
-                                    <i class="fas fa-envelope" style="padding: 15px 0px;"></i>
+                                <div class="text-center menu-item-label" data-target="#add-holiday-list" title="Add Holidays">
+                                    <i class="fas fa-envelope" style="padding: 15px 0px;" ></i>
                                 </div>
                             @endauth
 
                             @auth('it')
                                 <div class="text-center menu-item-label active" data-target="#it-request">
-                                    <i class="fas fa-laptop" style="padding: 15px 0px;"></i>
+                                    <i class="fas fa-laptop" style="padding: 15px 0px;" ></i>
                                 </div>
                             @endauth
 
                             @auth('finance')
                                 <div class="text-center menu-item-label active" data-target="#finance-request">
-                                    <i class="fas fa-dollar-sign" style="padding: 15px 0px;"></i>
+                                    <i class="fas fa-dollar-sign" style="padding: 15px 0px;" ></i>
                                 </div>
                             @endauth
                         </div>
@@ -322,7 +325,7 @@
                             <a class="item p-0 m-0" href="/PeoplesList" onclick="setActiveLink(this)">People</a>
                         </div>
                         <div class="ui accordion scrollable-container content-item" id="todo" style="border: none">
-                            <div class="sidebar-heading pb-2 pt-2 text-start"><p class="fw-bold">Todo</p></div>
+                            <div class="sidebar-heading pb-2 pt-2 text-start"><p class="fw-bold">To do</p></div>
                             <a class="item p-0 m-0" href="/tasks" onclick="setActiveLink(this)">Tasks</a>
                             <a class="item p-0 m-0" href="/employees-review" onclick="setActiveLink(this)">Review</a>
                         </div>
@@ -352,6 +355,7 @@
                             <a class="item p-0 m-0" href="/whoisinchart" onclick="setActiveLink(this)">@livewire('whoisin')</a>
                             <a class="item p-0 m-0" href="/employee-swipes-data" onclick="setActiveLink(this)">@livewire('employee-swipes')</a>
                             <a class="item p-0 m-0" href="/attendance-muster-data" onclick="setActiveLink(this)">@livewire('attendance-muster')</a>
+                            <a class="item p-0 m-0" href="/shift-roaster-data" onclick="setActiveLink(this)">@livewire('shift-roaster-submodule')</a>
                             @endif
                         </div>
                         <div class="ui accordion scrollable-container content-item" id="document-center" style="border: none">
@@ -365,6 +369,10 @@
                         <div class="ui accordion scrollable-container content-item" id="workflow-delegates" style="border: none">
                             <div class="sidebar-heading pb-2 pt-2 text-start"><p class="fw-bold">Workflow</p></div>
                             <a class="item p-0 m-0" href="/delegates" onclick="setActiveLink(this)">Workflow Delegates</a>
+                        </div>
+                        <div class="ui accordion scrollable-container content-item" id="timesheet" style="border: none">
+                            <div class="sidebar-heading pb-2 pt-2 text-start"><p class="fw-bold">Time Sheet</p></div>
+                            <a class="item p-0 m-0" href="/timesheet-page" onclick="setActiveLink(this)">Employee Time Sheet</a>
                         </div>
                         @endauth
 
@@ -533,6 +541,17 @@
                         <div class="header">Workflow</div>
                         <div class="ui divider"></div>
                         <a class="item p-0 m-0" href="/delegates" onclick="setActiveLink(this)">Workflow Delegates</a>
+                    </div>
+                </div>
+                <div class="ui dropdown item displaynone">
+                    <z>Time Sheet</z>
+                    <!-- <i class="icon demo-icon heart icon-heart"></i> -->
+                    <i class="fas fa-calendar-alt demo-icon"></i>
+
+                    <div class="menu">
+                        <div class="header">Time Sheet</div>
+                        <div class="ui divider"></div>
+                        <a class="itemp-0 m-0" href="/timesheet-page" onclick="setActiveLink(this)">Time Sheet</a>
                     </div>
                 </div>
                 @endauth

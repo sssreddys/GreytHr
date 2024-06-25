@@ -236,7 +236,7 @@
                                
                                   
                                         <span style="color: #333; font-weight: 500;font-size:12px;text-transform:uppercase;">
-                                            {{$ManagerName->first_name}}&nbsp;{{$ManagerName->last_name}}
+                                            hii{{$ManagerName->first_name}}&nbsp;{{$ManagerName->last_name}}
                                         </span>
                                    
                                        

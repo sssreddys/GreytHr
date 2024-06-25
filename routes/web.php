@@ -90,8 +90,9 @@ use App\Livewire\GrantLeaveBalance;
 use App\Livewire\ImageUpload;
 use App\Livewire\ItDashboardPage;
 use App\Livewire\LeaveBalancesChart;
+use App\Livewire\OrganisationChart;
 use App\Livewire\ReviewPendingRegularisation;
-use App\Livewire\OverView;
+use App\Livewire\ShiftRoaster;
 use Illuminate\Support\Facades\Route;
 
 
@@ -194,8 +195,6 @@ Route::middleware(['auth:hr','handleSession'])->group(function () {
     // Route::get('/hrleaveOverview', HrLeaveOverview::class)->name('hrleaveOverview');
     Route::get('/hrAttendanceOverview', HrAttendanceOverviewNew::class)->name('hrAttendanceOverview');
     Route::get('/addLeaves', GrantLeaveBalance::class)->name('leave-grant');
-    Route::get('/over-view', OverView::class)->name('over-view');
-
     // Route::get('/add-holiday-list', AddHolidayList::class)->name('holiday-list');
     // Route::get('/linechart', LineChart::class)->name('linechart');
 });
@@ -236,6 +235,7 @@ Route::middleware(['auth:emp','handleSession'])->group(function () {
     Route::get('/employee-swipes-data', EmployeeSwipesData::class)->name('employee-swipes-data');
     Route::get('/attendance-muster', AttendanceMuster::class)->name('attendance-muster');
     Route::get('/attendance-muster-data', AttendenceMasterDataNew::class)->name('attendance-muster-data');
+    Route::get('/shift-roaster-data', ShiftRoaster::class)->name('shift-roaster-data');
     Route::get('/ProfileInfo', ProfileInfo::class)->name('profile.info');
     Route::get('/Settings', Settings::class)->name('settings');
     Route::get('/review-pending-regularation/{id}', ReviewPendingRegularisation::class)->name('review-pending-regularation');

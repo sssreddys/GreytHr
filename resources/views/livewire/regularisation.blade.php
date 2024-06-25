@@ -463,7 +463,7 @@
     }
 
     .calendar-date:hover::before {
-        content: '+';
+
         font-size: 20px;
         display: block;
         text-align: center;
@@ -687,10 +687,7 @@
         /* Adjust font size as needed */
     }
 
-    .selected-date {
-        color: green;
-        background-color: yellow;
-    }
+  
 
     /* Calendar Styles */
     /* Apply gap between table header cells */
@@ -770,7 +767,59 @@
     border-radius: 4px; /* Add border radius */
     box-sizing: border-box; /* Include padding and border in the width */
 }
+.calendar-dates {
+        display: flex;
+        flex-wrap: wrap;
+        text-align: center;
+    }
 
+    .calendar-week {
+        display: flex;
+        width: 100%;
+        font-weight: bold;
+    }
+.calendar-date {
+        width: calc(100% / 7);
+        padding: 10px;
+        font-size:12px;
+        font-weight: bold;
+        box-sizing: border-box;
+        cursor: pointer;
+    }
+
+    .calendar-date.current-date {
+        background-color: #24a7f8;
+        color: #fff;
+        border-radius: 50%;
+        padding:10px;
+        height: 30px;
+        width:30px;
+        display: flex;
+        margin: 0 auto;
+        align-items: center;
+    }
+
+    .calendar-date.selected-date {
+        background-color: #f8f8f8;
+        border:1px solid #24a7f8;
+        padding:10px;
+        height: 25px;
+        width:2px;
+        display: flex;
+        margin: 0 auto;
+        align-items: center;
+    }
+
+    .calendar-date.other-month-date {
+        color: #a3b2c7;
+        font-weight:bold;
+        font-size:12px;
+    }
+    .calendar-date.after-today {
+        color: #a3b2c7;
+        font-weight:bold;
+        font-size:12px;
+    }
     </style>
    
     <div class="button-container">
@@ -803,12 +852,13 @@
 
                 <!-- Calendar Dates -->
                 <div class="calendar-dates">
-                    @foreach($daysInMonth as $day)
-                    <div class="calendar-date {{ $day['isCurrentDate'] ? 'current-date' : '' }} {{ in_array($day['date']->toDateString(), $selectedDates) ? 'selected-date' : '' }}"
-                        wire:click="selectDate('{{ $day['date']->toDateString() }}')">
-                        {{ $day['day'] }}
-                    </div>
-                    @endforeach
+                        @foreach($calendar as $week)
+                        <div class="calendar-week">
+                            @foreach($week as $day)
+                                <div class="calendar-date {{ $day['isCurrentDate'] ? 'current-date' : '' }} {{ in_array($day['date'], $selectedDates) ? 'selected-date' : '' }}{{ $day['isCurrentMonth'] ? '' : 'other-month-date' }}{{$day['isAfterToday'] ? 'after-today' : '' }}"wire:click="selectDate('{{ $day['date'] }}')">{{ $day['day'] }}</div>
+                             @endforeach
+                        </div>
+                        @endforeach
                 </div>
                 <div class="calendar-footer"style="text-align: center;
     @if($isdatesApplied)
@@ -967,7 +1017,7 @@
                             <span style="color: #778899; font-size: 12px; font-weight: 500;">Pending&nbsp;With</span>
 
                             <span
-                                style="color: #36454F; font-size: 12px; font-weight: 500;text-transform:uppercase;">{{$EmployeeDetails->first_name}}&nbsp;{{$EmployeeDetails->last_name}}</span>
+                                style="color: #36454F; font-size: 12px; font-weight: 500;text-transform:uppercase;">{{ucwords(strtolower($EmployeeDetails->first_name))}}&nbsp;{{ucwords(strtolower($EmployeeDetails->last_name))}}</span>
 
                         </div>
 
@@ -1020,13 +1070,10 @@
                             <span style="font-size: 11px; font-weight: 500;"></span>
 
                             @if (!empty($lastItem['date']))
-                               {{ date('d', strtotime($lastItem['date'])) }} {{ date('M Y', strtotime($lastItem['date'])) }}
+                               {{ date('d)', strtotime($lastItem['date'])) }} {{ date('M Y', strtotime($lastItem['date'])) }}
                             @endif
 
-                           @foreach($regularisationEntries as $entry)
-                             {{$entry['date']}}
-                           @endforeach
-
+                          
                         </span>
                         @else
                         <span style="font-size: 11px;">

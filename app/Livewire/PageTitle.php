@@ -44,25 +44,21 @@ class PageTitle extends Component
 
     private function mapRouteToTitle($routeName)
     {
-        try {
-            $routeTitleMap = [
-                'home' => 'Home',
-                'feeds' => 'Feeds',
-                'people' => 'People',
-                'profile.info' => 'Employee Information',
-                'itdeclaration' => 'It Declaration',
-                'whoisin' => 'Who is in ?',
-                'leave-history' => 'Leave - View Details',
-                'leave-pending' =>'Leave - View Details',
-                'approved-details' => 'Review - Leave',
-                'leave-page' => 'Leave Apply',
-            ];
-            // Use the mapped title or fallback to the original route name
-            return $routeTitleMap[$routeName] ?? ucwords(str_replace('-', ' ', $routeName));
-        } catch (\Exception $e) {
-            Log::error('Error occurred in mapRouteToTitle method: ' . $e->getMessage());
-            session()->flash('error', 'An error occurred while mapping route to title.');
-        }
+        $routeTitleMap = [
+            'home' => 'Home',
+            'feeds' => 'Feeds',
+            'people' => 'People',
+            'profile.info' => 'Employee Information',
+            'itdeclaration' => 'It Declaration',
+            'whoisin' => 'Who is in ?',
+            'leave-history' => 'Leave - View Details',
+            'leave-pending' =>'Leave - View Details',
+            'approved-details' => 'Review - Leave',
+            'leave-page' => 'Leave Apply',
+            
+        ];
+        // Use the mapped title or fallback to the original route name
+        return $routeTitleMap[$routeName] ?? ucwords(str_replace('-', ' ', $routeName));
     }
 
     public function render()

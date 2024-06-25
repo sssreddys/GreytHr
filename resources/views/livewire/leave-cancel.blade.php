@@ -13,7 +13,7 @@
             <div>
                 <div class="form-group" style="margin-top: 10px;">
                     <div style="display:flex; flex-direction:row;">
-                        <label for="applyingToText" id="applyingToText" name="applyingTo" style="color: #778899; font-size: 14px; font-weight: 500; cursor: pointer;" >
+                        <label for="applyingToText" id="applyingToText" name="applyingTo" style="color: #778899; font-size: 12px; font-weight: 500; cursor: pointer;" >
                             Applying To
                         </label>
                     </div>
@@ -62,7 +62,7 @@
                 @error('applying_to') <span class="text-danger">{{ $message }}</span> @enderror
             </div>
         <div class="form-group">
-            <label for="ccToText" wire:model="from_date" id="applyingToText" name="applyingTo" style="color: #778899; font-size: 14px; font-weight: 500;">
+            <label for="ccToText" wire:model="from_date" id="applyingToText" name="applyingTo" style="color: #778899; font-size: 12px; font-weight: 500;">
                 CC to
             </label>
             <div class="control-wrapper" style="display: flex; flex-direction: row; gap: 10px;">
@@ -106,19 +106,19 @@
                 @error('cc_to') <span class="text-danger">{{ $message }}</span> @enderror
         </div>
             <div class="form-group">
-                <label for="contactDetails" style="color: #778899; font-size: 14px; font-weight: 500;">Contact Details</label>
+                <label for="contactDetails" style="color: #778899; font-size: 12px; font-weight: 500;">Contact Details</label>
                 <input type="text" wire:model="contact_details" class="form-control" id="contactDetails" name="contactDetails" style="color: #778899;width:50%;">
                 @error('contact_details') <span class="text-danger">{{ $message }}</span> @enderror
             </div>
             <div class="form-group">
-                <label for="reason" style="color: #778899; font-size: 14px; font-weight: 500;">Reason for Leave</label>
+                <label for="reason" style="color: #778899; font-size: 12px; font-weight: 500;">Reason for Leave</label>
                 <textarea class="form-control" wire:model="reason" id="reason" name="reason" placeholder="Enter Reason" rows="4" ></textarea>
                 @error('reason') <span class="text-danger">{{ $message }}</span> @enderror
             </div>
           
             <div class="buttons1">
-              <button type="submit" class="btn btn-primary">Submit</button>
-                <button type="button" class="btn btn-secondary" >Cancel</button>
+              <button type="submit" class="submit-btn">Submit</button>
+                <button type="button" class=" cancel-btn" >Cancel</button>
             </div>
     </form>
 </div>
