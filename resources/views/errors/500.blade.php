@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Page Not Found</title>
+    <title>Internal Server Error</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -38,7 +37,7 @@
         }
 
         .home-btn {
-            background-color: rgb(2, 17, 79);
+            background-color:  rgb(2, 17, 79);
             padding: 10px 20px;
             font-size: 12px;
             color: white;
@@ -51,24 +50,22 @@
         .home-btn:hover {
             background-color: #2980b9;
         }
-
-        a {
+        a{
             text-decoration: none;
             color: white;
         }
+
     </style>
 </head>
-
 <body>
 
     <div class="error-container">
-        <img src="https://thumbs.dreamstime.com/b/oops-error-page-not-found-flat-illustration-internet-connection-problem-small-robot-icon-vector-problems-175093796.jpg"
-            alt="Page Not Found" class="error-image">
-        <h1>Page Not Found</h1>
-        <p>The requested page could not be found. Check the URL or go back to the homepage.</p>
-        <button class="home-btn"><a href="/">Go to Homepage</a></button>
+        <img src="https://thumbs.dreamstime.com/b/oops-error-page-not-found-flat-illustration-internet-connection-problem-small-robot-icon-vector-problems-175093796.jpg" alt="Page Not Found" class="error-image">
+        <h1>500</h1>
+        <h3 class="h2 mb-3"><i class="fas fa-exclamation-triangle"></i> Internal Server Error</h3>
+        <p class="h4 font-weight-normal">You do not have permission to view this resource</p>
+        {{-- <a href="{{route('emplogin')}}" class="btn btn-primary">Back to Home</a> --}}
     </div>
 
 </body>
-
 </html>

@@ -68,9 +68,14 @@ class LogOut extends Component
 
     try {
         // Logout the user from all guards
+       // dd(Auth::user());
+       
         Auth::logout();
 
         // Clear session data
+         session()->invalidate();
+
+        session()->regenerateToken();
         session()->flush();
 
         // Flash success message
